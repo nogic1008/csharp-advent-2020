@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CSharp72
+namespace CSharp71
 {
     public class ImmutableValueClass : IEquatable<ImmutableValueClass>, IComparable, IComparable<ImmutableValueClass>
     {
