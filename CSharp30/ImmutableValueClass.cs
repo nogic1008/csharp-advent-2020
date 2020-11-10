@@ -92,26 +92,22 @@ namespace CSharp30
 
         public static bool operator > (ImmutableValueClass left, ImmutableValueClass right)
         {
-            return (!ReferenceEquals(left, null) && !ReferenceEquals(right, null) && left.Id > right.Id)
-                || (!ReferenceEquals(left, null) && ReferenceEquals(right, null));
+            return !ReferenceEquals(left, null) && (ReferenceEquals(right, null) || left.Id > right.Id);
         }
 
         public static bool operator < (ImmutableValueClass left, ImmutableValueClass right)
         {
-            return (!ReferenceEquals(left, null) && !ReferenceEquals(right, null) && left.Id < right.Id)
-                || (ReferenceEquals(left, null) && !ReferenceEquals(right, null));
+            return !ReferenceEquals(right, null) && (ReferenceEquals(left, null) || left.Id < right.Id);
         }
 
         public static bool operator >= (ImmutableValueClass left, ImmutableValueClass right)
         {
-            return (!ReferenceEquals(left, null) && !ReferenceEquals(right, null) && left.Id >= right.Id)
-                || ReferenceEquals(right, null);
+            return ReferenceEquals(right, null) || (!ReferenceEquals(left, null) && left.Id >= right.Id);
         }
 
         public static bool operator <= (ImmutableValueClass left, ImmutableValueClass right)
         {
-            return (!ReferenceEquals(left, null) && !ReferenceEquals(right, null) && left.Id <= right.Id)
-                || ReferenceEquals(left, null);
+            return ReferenceEquals(left, null) || (!ReferenceEquals(right, null) && left.Id <= right.Id);
         }
     }
 }

@@ -40,19 +40,15 @@ namespace CSharp71
             => other is null ? 1 : Id - other.Id;
 
         public static bool operator > (ImmutableValueClass left, ImmutableValueClass right)
-            => (!(left is null) && !(right is null) && left.Id > right.Id)
-            || (!(left is null) && right is null);
+            => !(left is null) && (right is null || left.Id > right.Id);
 
         public static bool operator < (ImmutableValueClass left, ImmutableValueClass right)
-            => (!(left is null) && !(right is null) && left.Id < right.Id)
-            || (left is null && !(right is null));
+            => !(right is null) && (left is null || left.Id < right.Id);
 
         public static bool operator >= (ImmutableValueClass left, ImmutableValueClass right)
-            => (!(left is null) && !(right is null) && left.Id >= right.Id)
-            || right is null;
+            => right is null || (!(left is null) && left.Id >= right.Id);
 
         public static bool operator <= (ImmutableValueClass left, ImmutableValueClass right)
-            => (!(left is null) && !(right is null) && left.Id <= right.Id)
-            || left is null;
+            => left is null || (!(right is null) && left.Id <= right.Id);
     }
 }

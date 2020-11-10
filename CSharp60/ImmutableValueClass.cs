@@ -61,19 +61,15 @@ namespace CSharp60
             => ReferenceEquals(other, null) ? 1 : Id - other.Id;
 
         public static bool operator > (ImmutableValueClass left, ImmutableValueClass right)
-            => (!ReferenceEquals(left, null) && !ReferenceEquals(right, null) && left.Id > right.Id)
-            || (!ReferenceEquals(left, null) && ReferenceEquals(right, null));
+            => !ReferenceEquals(left, null) && (ReferenceEquals(right, null) || left.Id > right.Id);
 
         public static bool operator < (ImmutableValueClass left, ImmutableValueClass right)
-            => (!ReferenceEquals(left, null) && !ReferenceEquals(right, null) && left.Id < right.Id)
-            || (ReferenceEquals(left, null) && !ReferenceEquals(right, null));
+            => !ReferenceEquals(right, null) && (ReferenceEquals(left, null) || left.Id < right.Id);
 
         public static bool operator >= (ImmutableValueClass left, ImmutableValueClass right)
-            => (!ReferenceEquals(left, null) && !ReferenceEquals(right, null) && left.Id >= right.Id)
-            || ReferenceEquals(right, null);
+            => ReferenceEquals(right, null) || (!ReferenceEquals(left, null) && left.Id >= right.Id);
 
         public static bool operator <= (ImmutableValueClass left, ImmutableValueClass right)
-            => (!ReferenceEquals(left, null) && !ReferenceEquals(right, null) && left.Id <= right.Id)
-            || ReferenceEquals(left, null);
+            => ReferenceEquals(left, null) || (!ReferenceEquals(right, null) && left.Id <= right.Id);
     }
 }
