@@ -66,7 +66,7 @@ namespace CSharp10
 
         public override string ToString()
         {
-            return string.Format("ImmutableValueClass: { Id: {0}, Name: {1}, Remarks: {2}, ParentId: {3} }", Id, Name, Remarks, ParentId);
+            return string.Format("ImmutableValueClass: {{ Id: {0}, Name: {1}, Remarks: {2}, ParentId: {3} }}", Id, Name, Remarks, ParentId);
         }
 
         // Note: This method is not useful in C# 6 and below.
@@ -86,7 +86,7 @@ namespace CSharp10
             ImmutableValueClass other = obj as ImmutableValueClass;
             if (ReferenceEquals(other, null))
                 throw new ArgumentException("obj is not a ImmutableValueClass", "obj");
-            
+
             return CompareTo(other);
         }
 
