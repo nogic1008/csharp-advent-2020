@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace CSharp30
 {
@@ -61,7 +61,7 @@ namespace CSharp30
 
         public override string ToString()
         {
-            return string.Format("ImmutableValueClass: { Id: {0}, Name: {1}, Remarks: {2}, ParentId: {3} }", Id, Name, Remarks, ParentId);
+            return string.Format("ImmutableValueClass: {{ Id: {0}, Name: {1}, Remarks: {2}, ParentId: {3} }}", Id, Name, Remarks, ParentId);
         }
 
         // Note: This method is not useful in C# 6 and below.
