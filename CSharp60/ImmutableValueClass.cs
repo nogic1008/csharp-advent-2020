@@ -53,7 +53,7 @@ namespace CSharp60
             var other = obj as ImmutableValueClass;
             if (ReferenceEquals(other, null))
                 throw new ArgumentException(nameof(obj) + " is not a " + nameof(ImmutableValueClass), nameof(obj));
-            
+
             return CompareTo(other);
         }
 
