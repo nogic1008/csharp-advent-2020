@@ -17,17 +17,12 @@ namespace CSharp10
 
         // Note: This constractor's API is exactly different from C# 4 and later,
         // because overload and default arguments are incompatible.
-        public ImmutableValueClass(int id, string name) : this(id, name, null)
+        public ImmutableValueClass(int id, string name) : this(id, name, null, new NullableInt())
         {
         }
 
-        public ImmutableValueClass(int id, string name, string remarks)
+        public ImmutableValueClass(int id, string name, string remarks) : this(id, name, remarks, new NullableInt())
         {
-            _id = id;
-            if (ReferenceEquals(name, null))
-                throw new ArgumentNullException("name");
-            _name = name;
-            _remarks = remarks;
         }
 
         public ImmutableValueClass(int id, string name, NullableInt parentId) : this(id, name, null, parentId)
